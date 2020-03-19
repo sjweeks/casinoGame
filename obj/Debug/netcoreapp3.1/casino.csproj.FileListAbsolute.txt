@@ -1,0 +1,10 @@
+/Users/sarahweeks/Desktop/Projects/casino/bin/Debug/netcoreapp3.1/casino.deps.json
+/Users/sarahweeks/Desktop/Projects/casino/bin/Debug/netcoreapp3.1/casino.runtimeconfig.json
+/Users/sarahweeks/Desktop/Projects/casino/bin/Debug/netcoreapp3.1/casino.runtimeconfig.dev.json
+/Users/sarahweeks/Desktop/Projects/casino/bin/Debug/netcoreapp3.1/casino.dll
+/Users/sarahweeks/Desktop/Projects/casino/bin/Debug/netcoreapp3.1/casino.pdb
+/Users/sarahweeks/Desktop/Projects/casino/obj/Debug/netcoreapp3.1/casino.csprojAssemblyReference.cache
+/Users/sarahweeks/Desktop/Projects/casino/obj/Debug/netcoreapp3.1/casino.AssemblyInfoInputs.cache
+/Users/sarahweeks/Desktop/Projects/casino/obj/Debug/netcoreapp3.1/casino.AssemblyInfo.cs
+/Users/sarahweeks/Desktop/Projects/casino/obj/Debug/netcoreapp3.1/casino.dll
+/Users/sarahweeks/Desktop/Projects/casino/obj/Debug/netcoreapp3.1/casino.pdb
