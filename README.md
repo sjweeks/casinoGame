@@ -12,7 +12,8 @@ This is the initial game so it is a very basic version of both games so there ar
     - Implementing best practices across both of the games
 
 ## Initial walkthrough
-- dotnet run to start the 
+- dotnet run to start the game. 
+- The user will then be asked which game they would like to play, Roulette or BlackJack
 
 ## BlackJack Walkthrough
 - Initially the game will welcome you and ask you to input your name
