@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace casino
 {
-    class rouletteGame
+    class RouletteGame
     {
         string userName;
         string stake;
@@ -18,7 +18,6 @@ namespace casino
         {
             balance = 0;
             Console.WriteLine("Welcome to Roulette!");
-            Console.ReadKey();
             Console.Write("Enter player name: ");
             userName = Console.ReadLine();
             Console.WriteLine("Welcome {0}, lets start the game", userName);
@@ -32,17 +31,24 @@ namespace casino
             Console.WriteLine("How would you like to bet? 1 - Numbers, 2 - Red/Black, 3 - Odd/Even");
             userInput = Console.ReadLine();
 
-            if (userInput == "1")
+            switch (userInput)
             {
-                numberBet();
-            }
-            else if (userInput == "2")
-            {
-                colourBet();
-            }
-            else if (userInput == "3")
-            {
-                oddBet();
+                case "1":
+                    betFunc();
+                    numberBet();
+                    break;
+                case "2":
+                    betFunc();
+                    colourBet();
+                    break;
+                case "3":
+                    betFunc();
+                    oddBet();
+                    break;
+                default:
+                    Console.WriteLine("That is not a valid option, please try again");
+                    startGame();
+                    break;
             }
         }
         public void numberBet()
@@ -51,51 +57,51 @@ namespace casino
 
             List<String> numbersChosen = new List<String>();
 
-            betFunc();
-
             Console.WriteLine("How many numbers would you like to choose - 1, 2, 3 or 4? ");
             userInput = Console.ReadLine();
 
-            if (userInput == "1")
+            switch (userInput)
             {
-                odds = 35;
-                Console.WriteLine("Please choose 1 number");
-                userInput = Console.ReadLine();
-                numbersChosen.Add(userInput);
-            }
-            else if (userInput == "2")
-            {
-                odds = 17;
-                Console.WriteLine("Please choose 2 numbers");
-                userInput = Console.ReadLine();
-                numbersChosen.Add(userInput);
-                userInput = Console.ReadLine();
-                numbersChosen.Add(userInput);
-
-            }
-            else if (userInput == "3")
-            {
-                odds = 11;
-                Console.WriteLine("Please choose 3 numbers");
-                userInput = Console.ReadLine();
-                numbersChosen.Add(userInput);
-                userInput = Console.ReadLine();
-                numbersChosen.Add(userInput);
-                userInput = Console.ReadLine();
-                numbersChosen.Add(userInput);
-            }
-            else if (userInput == "4")
-            {
-                odds = 8;
-                Console.WriteLine("Please choose 4 numbers");
-                userInput = Console.ReadLine();
-                numbersChosen.Add(userInput);
-                userInput = Console.ReadLine();
-                numbersChosen.Add(userInput);
-                userInput = Console.ReadLine();
-                numbersChosen.Add(userInput);
-                userInput = Console.ReadLine();
-                numbersChosen.Add(userInput);
+                case "1":
+                    odds = 35;
+                    Console.WriteLine("Please choose 1 number");
+                    userInput = Console.ReadLine();
+                    numbersChosen.Add(userInput);
+                    break;
+                case "2":
+                    odds = 17;
+                    Console.WriteLine("Please choose 2 numbers");
+                    userInput = Console.ReadLine();
+                    numbersChosen.Add(userInput);
+                    userInput = Console.ReadLine();
+                    numbersChosen.Add(userInput);
+                    break;
+                case "3":
+                    odds = 11;
+                    Console.WriteLine("Please choose 3 numbers");
+                    userInput = Console.ReadLine();
+                    numbersChosen.Add(userInput);
+                    userInput = Console.ReadLine();
+                    numbersChosen.Add(userInput);
+                    userInput = Console.ReadLine();
+                    numbersChosen.Add(userInput);
+                    break;
+                case "4":
+                    odds = 8;
+                    Console.WriteLine("Please choose 4 numbers");
+                    userInput = Console.ReadLine();
+                    numbersChosen.Add(userInput);
+                    userInput = Console.ReadLine();
+                    numbersChosen.Add(userInput);
+                    userInput = Console.ReadLine();
+                    numbersChosen.Add(userInput);
+                    userInput = Console.ReadLine();
+                    numbersChosen.Add(userInput);
+                    break;
+                default:
+                    Console.WriteLine("Sorry that's not a valid option. Please try again");
+                    numberBet();
+                    break;
             }
 
             Console.WriteLine("Your odds are: {0}/1", odds);
@@ -117,11 +123,11 @@ namespace casino
                 lose();
             }
         }
+
         public void colourBet()
         {
             string userInput;
 
-            betFunc();
             Console.WriteLine("You have chosen to bet via colours. Would you like to choose: 1 - Red or 2 - Black");
             userInput = Console.ReadLine();
             Console.ReadKey();
@@ -155,7 +161,6 @@ namespace casino
         {
             string userInput;
 
-            betFunc();
             Console.WriteLine("You have chosen to pick either Odd or Even. 1 - Odd or 2 - Even");
             userInput = Console.ReadLine();
 
@@ -186,7 +191,6 @@ namespace casino
         }
         public void betFunc()
         {
-        START:
             string stakeChosen;
             Console.Write("Time to place bets, how much would you like to stake? £");
             stakeChosen = Console.ReadLine();
@@ -198,7 +202,7 @@ namespace casino
             else
             {
                 Console.WriteLine("Sorry that stake is too high for a single bet, please bet a smaller amount");
-                goto START;
+                betFunc();
             }
             Console.ReadKey();
         }

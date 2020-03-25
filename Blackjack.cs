@@ -47,13 +47,17 @@ namespace casino
             Console.WriteLine("Would you like to 1 - stick or 2 - twist?");
             userInput = Console.ReadLine();
 
-            if (userInput == "1")
+            switch (userInput)
             {
-                stick();
-            }
-            else if (userInput == "2")
-            {
-                twist();
+                case "1":
+                    stick();
+                    break;
+                case "2":
+                    twist();
+                    break;
+                default:
+                    Console.WriteLine("That is not a valid option, please try again");
+                    break;
             }
         }
 
