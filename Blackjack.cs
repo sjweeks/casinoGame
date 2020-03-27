@@ -9,6 +9,7 @@ namespace casino
         string stake;
         int dealer;
         int player;
+        int balance;
 
         public void initialise()
         {
@@ -23,27 +24,45 @@ namespace casino
 
         public void startGame()
         {
-            Console.Write("Time to place bets, how much would you like to stake? £");
-            stake = Console.ReadLine();
+            betFunc();
             dealer = 0;
             player = 0;
+            Console.WriteLine("{0} it's your turn", userName);
             Console.ReadKey();
             playerTurn();
+            choice();
+        }
+        public void betFunc()
+        {
+            string stakeChosen;
+            Console.Write("Time to place bets, how much would you like to stake? £");
+            stakeChosen = Console.ReadLine();
+
+            if (Convert.ToInt32(stakeChosen) < 500)
+            {
+                stake = stakeChosen;
+            }
+            else
+            {
+                Console.WriteLine("Sorry that stake is too high for a single bet, please bet a smaller amount");
+                betFunc();
+            }
+            Console.ReadKey();
         }
         public void playerTurn()
         {
-            string userInput;
-
-            Console.WriteLine("{0} it's your turn", userName);
-            Console.ReadKey();
-
             Random rnd = new Random();
             int[] blackJackNumbers = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
 
             int playerIndex = rnd.Next(blackJackNumbers.Length);
             player += blackJackNumbers[playerIndex];
 
-            Console.WriteLine("Your number is {0}", blackJackNumbers[playerIndex]);
+            Console.WriteLine("Your card is {0}", blackJackNumbers[playerIndex]);
+        }
+        public void choice()
+        {
+            string userInput;
+
             Console.WriteLine("Would you like to 1 - stick or 2 - twist?");
             userInput = Console.ReadLine();
 
@@ -57,6 +76,7 @@ namespace casino
                     break;
                 default:
                     Console.WriteLine("That is not a valid option, please try again");
+                    choice();
                     break;
             }
         }
@@ -102,6 +122,7 @@ namespace casino
             else if (dealer > 21)
             {
                 Console.WriteLine("Dealer has bust");
+                win();
             }
             else
             {
@@ -111,16 +132,7 @@ namespace casino
         public void twist()
         {
             string userInput;
-
-            Random rnd = new Random();
-            int[] blackJackNumbers = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
-
-            int playerIndex = rnd.Next(blackJackNumbers.Length);
-
-            Console.WriteLine("Your card is {0}", blackJackNumbers[playerIndex]);
-
-            player += blackJackNumbers[playerIndex];
-
+            playerTurn();
             if (player > 21)
             {
                 Console.WriteLine("You have bust!");
@@ -154,15 +166,17 @@ namespace casino
 
             Console.WriteLine("You have doubled your stake, you won: £{0}", winnings);
             Console.ReadKey();
+            balance += Convert.ToInt32(winnings);
+            Console.WriteLine("Your current balance is: {0}", balance);
 
             Console.WriteLine("Would you like to play again? Y or N");
             userInput = Console.ReadLine();
 
-            if (userInput == "y")
+            if (userInput == "y" || userInput == "Y")
             {
                 startGame();
             }
-            else if (userInput == "n")
+            else
             {
                 endGame();
             }
@@ -174,11 +188,11 @@ namespace casino
             Console.WriteLine("Sorry {0}, you have lost! Would you like to play again? Y or N", userName);
             userInput = Console.ReadLine();
 
-            if (userInput == "y")
+            if (userInput == "y" || userInput == "Y")
             {
                 startGame();
             }
-            else if (userInput == "n")
+            else
             {
                 endGame();
             }
@@ -187,14 +201,14 @@ namespace casino
         {
             string userInput;
 
-            Console.WriteLine("{0}, you have drawn with the dealer! Would you like to play again? Y or N", userName);
+            Console.WriteLine("{0}, you have drawn with the dealer! Would you like to play BlackJack again? Y or N", userName);
             userInput = Console.ReadLine();
 
-            if (userInput == "y")
+            if (userInput == "y" || userInput == "Y")
             {
                 startGame();
             }
-            else if (userInput == "n")
+            else
             {
                 endGame();
             }

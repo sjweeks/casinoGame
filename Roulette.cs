@@ -275,7 +275,7 @@ namespace casino
             balance -= Convert.ToInt32(stake);
             Console.WriteLine("Sorry {0}, you have lost. Your new balance is: {1}", userName, balance);
             Console.ReadKey();
-            Console.WriteLine("Would you like to play again? Y or N");
+            Console.WriteLine("Would you like to play Roulette again? Y or N");
             userInput = Console.ReadLine();
 
             if (userInput == "y")

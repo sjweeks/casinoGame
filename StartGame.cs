@@ -8,8 +8,6 @@ namespace casino
         {
             string userInput;
 
-            Console.WriteLine("Welcome to Puzzles! Whilst enjoying our casino we advise you to gamble responsibly!");
-            Console.ReadKey();
             Console.WriteLine("Which game would you like to try your hand at today? 1 - BlackJack or 2 - Roulette");
             userInput = Console.ReadLine();
 
