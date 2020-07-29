@@ -10,6 +10,8 @@ namespace casino
         int dealer;
         int player;
         int balance;
+        int maxAmountOfBet = 500;
+        int blackjackHighestNumber = 21;
 
         public void initialise()
         {
@@ -38,7 +40,7 @@ namespace casino
             Console.Write("Time to place bets, how much would you like to stake? £");
             stakeChosen = Console.ReadLine();
 
-            if (Convert.ToInt32(stakeChosen) < 500)
+            if (Convert.ToInt32(stakeChosen) < maxAmountOfBet)
             {
                 stake = stakeChosen;
             }
@@ -83,7 +85,7 @@ namespace casino
 
         public void stick()
         {
-            if (player > 21)
+            if (player > blackjackHighestNumber)
             {
                 Console.WriteLine("You have bust!");
                 lose();
@@ -119,7 +121,7 @@ namespace casino
             {
                 dealerTurn();
             }
-            else if (dealer > 21)
+            else if (dealer > blackjackHighestNumber)
             {
                 Console.WriteLine("Dealer has bust");
                 win();
@@ -133,7 +135,7 @@ namespace casino
         {
             string userInput;
             playerTurn();
-            if (player > 21)
+            if (player > blackjackHighestNumber)
             {
                 Console.WriteLine("You have bust!");
                 lose();
