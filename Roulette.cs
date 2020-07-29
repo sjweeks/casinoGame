@@ -10,9 +10,12 @@ namespace casino
         string colour;
         int number;
         bool numberCheck;
-        // bool listCheck;
         int odds;
         int balance;
+        int oneNumber = 35;
+        int twoNumbers = 17;
+        int threeNumbers = 11;
+        int fourNumbers = 8;
 
         public void initialise()
         {
@@ -63,13 +66,13 @@ namespace casino
             switch (userInput)
             {
                 case "1":
-                    odds = 35;
+                    odds = oneNumber;
                     Console.WriteLine("Please choose 1 number");
                     userInput = Console.ReadLine();
                     numbersChosen.Add(userInput);
                     break;
                 case "2":
-                    odds = 17;
+                    odds = twoNumbers;
                     Console.WriteLine("Please choose 2 numbers");
                     userInput = Console.ReadLine();
                     numbersChosen.Add(userInput);
@@ -77,7 +80,7 @@ namespace casino
                     numbersChosen.Add(userInput);
                     break;
                 case "3":
-                    odds = 11;
+                    odds = threeNumbers;
                     Console.WriteLine("Please choose 3 numbers");
                     userInput = Console.ReadLine();
                     numbersChosen.Add(userInput);
@@ -87,7 +90,7 @@ namespace casino
                     numbersChosen.Add(userInput);
                     break;
                 case "4":
-                    odds = 8;
+                    odds = fourNumbers;
                     Console.WriteLine("Please choose 4 numbers");
                     userInput = Console.ReadLine();
                     numbersChosen.Add(userInput);
